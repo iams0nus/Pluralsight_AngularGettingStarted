@@ -1,9 +1,19 @@
-<!--The whole content below can be removed with the new code.-->
-<div>
-  <h1>
-    {{title}}
-  </h1>
-  <div>
-    <pm-products></pm-products>
-  </div>
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <!-- This is interpolation, the title Property in the component class is bound here -->
+  <a class='navbar-brand'>{{title}}</a>
+  <ul class='nav nav-pills'>
+    <!-- routerLink is an attribute directive that specifies the route to navigate to,
+    takes an array with routeName as first followed by route parameters -->
+    <li><a class='nav-link'
+         routerLinkActive='active'
+         [routerLink]="['/welcome']">Home</a></li>
+    <li><a class='nav-link'
+         routerLinkActive='active'
+         [routerLink]="['/products']">Product List</a></li>
+  </ul>
+</nav>
+<div class='container'>
+  <!-- The outlet of the routing result, router-outlet is the directive from @angular/route, 
+    add the RouterModule to main module -->
+  <router-outlet></router-outlet>
 </div>
